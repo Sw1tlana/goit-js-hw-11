@@ -12,7 +12,7 @@
     "css-loader": "^6.9.0",
     "glob": "^8.1.0",
     "style-loader": "^3.3.4",
-    "vite": "^4.0.5"
+    "vite": "^4.5.1"
   },
   "author": "Svitlana Miroshnychenko <rex141rex@gmail.com>",
   "license": "ISC",
