@@ -37,11 +37,13 @@ function searchFormSubmit (evt) {
         renderImages(data.hits);  
     })      
    .catch(onFetchError)
-   .finally(() =>
-   form.reset());
+   .finally(() => {
+   loader.style.display = "none"
+   form.reset()});
 }
 
 function fetchImages(url) {
+    loader.style.display = "block";
   return fetch(url)
        .then((response) => {
         loader.style.display = "block";
