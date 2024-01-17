@@ -22,12 +22,15 @@
   -webkit-text-size-adjust: 100%;
 }
 
+.section-form {
+  margin-bottom: 0;
+}
+
 form {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 36px;
-  padding-bottom: 32px;
+  margin-bottom: 0;
 }
 
 input[type="text"] {
@@ -76,20 +79,24 @@ button[type="submit"]:hover {
   border: none;
 }
 
+.section-gallery {
+   margin-top: -40px;
+}
+
 .gallery{
  display: flex;
  flex-wrap: wrap;
- gap: 24px;
+ gap: 20px;
+ padding-top: 0;
 }
 
 .gallery-item {
- flex-basis: calc((100% - 96px) / 5);
+ flex-basis: calc((100% - 80px) / 5);
 }
 
 .gallery-images {
   max-width: 300px;
   width: 100%;
-  display: block;
   max-height: 150px;
   height: 100%;
   width: 100%; 
@@ -102,6 +109,10 @@ button[type="submit"]:hover {
 .info-number {
 font-size: 12px;
 text-align: center;
+}
+
+.loader {
+  display: none;
 }
 
 .loader {

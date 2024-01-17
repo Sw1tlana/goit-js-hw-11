@@ -20,8 +20,10 @@ function searchFormSubmit (evt) {
     const query = form.elements.searchQuery.value.trim();
 
     const url = `${BASE_API}?key=${API_Key}&q=${query}&image_type=photo&orientation=horizontal&safesearch=true`;
+    loader.style.display = "block";
 
     console.log(query);
+
     fetchImages(url)
     .then((data) => {
         if (!data.total) {
@@ -34,19 +36,17 @@ function searchFormSubmit (evt) {
             close: false
         });   
         }
-        renderImages(data.hits);  
+    renderImages(data.hits);  
     })      
    .catch(onFetchError)
    .finally(() => {
-   loader.style.display = "none"
+    loader.style.display = "none";
    form.reset()});
-}
+ }
 
 function fetchImages(url) {
-    loader.style.display = "block";
   return fetch(url)
        .then((response) => {
-        loader.style.display = "block";
            if (!response.ok) {
                throw new Error(response.status);
            }
@@ -72,13 +72,12 @@ const markup = images.map(({ webformatURL, largeImageURL, tags, likes, views, co
  </li>
 `
 }).join("");
- 
+
 galleryImages.insertAdjacentHTML("beforeend", markup);
 
 const lightbox = new SimpleLightbox(document.querySelectorAll('ul.gallery a'));
 
 lightbox.refresh();
-
 }
 
 
