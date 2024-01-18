@@ -8,8 +8,8 @@ const searchForm = document.getElementById("searchForm");
 const galleryImages = document.querySelector("ul.gallery");
 const loader = document.querySelector(".loader");
 
-const BASE_API = "https://pixabay.com/api";
-const API_Key = "41802498-7aef04e1b4b4791f33c618bc1";
+// const BASE_API = "https://pixabay.com/api";
+// const API_Key = "41802498-7aef04e1b4b4791f33c618bc1";
 
 searchForm.addEventListener("submit", searchFormSubmit);
 
@@ -21,7 +21,7 @@ function searchFormSubmit (evt) {
     const form = evt.currentTarget;
     const query = form.elements.searchQuery.value.trim();
 
-    const url = `https://pixabay.com/api/?key=${API_Key}&q=${query}&image_type=photo&orientation=horizontal&safesearch=true`;
+    const url = `https://pixabay.com/api/?key=41802498-7aef04e1b4b4791f33c618bc1&q=${query}&image_type=photo&orientation=horizontal&safesearch=true`;
     loader.style.display = "block";
 
 fetchImages(url)
