@@ -21,7 +21,7 @@ function searchFormSubmit (evt) {
     const form = evt.currentTarget;
     const query = form.elements.searchQuery.value.trim();
 
-    const url = `${BASE_API}?key=${API_Key}&q=${query}&image_type=photo&orientation=horizontal&safesearch=true`;
+    const url = `https://pixabay.com/api/?key=${API_Key}&q=${query}&image_type=photo&orientation=horizontal&safesearch=true`;
     loader.style.display = "block";
 
 fetchImages(url)
