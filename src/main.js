@@ -8,9 +8,6 @@ const searchForm = document.getElementById("searchForm");
 const galleryImages = document.querySelector("ul.gallery");
 const loader = document.querySelector(".loader");
 
-// const BASE_API = "https://pixabay.com/api";
-// const API_Key = "41802498-7aef04e1b4b4791f33c618bc1";
-
 searchForm.addEventListener("submit", searchFormSubmit);
 
 loader.style.display = "none";
@@ -20,19 +17,19 @@ function searchFormSubmit (evt) {
     galleryImages.innerHTML = "";
     const form = evt.currentTarget;
     const query = form.elements.searchQuery.value.trim();
-
+    
     const url = `https://pixabay.com/api/?key=41802498-7aef04e1b4b4791f33c618bc1&q=${query}&image_type=photo&orientation=horizontal&safesearch=true`;
     loader.style.display = "block";
 
 fetchImages(url)
     .then((data) => {
         if (!data.total) {
-            iziToast.error({
-                message: 'Sorry, there are no images matching your search query. Please try again!',
+            iziToast.show({
+                message: '❌Sorry, there are no images matching your search query.Please try again!',
                 messageColor: '#ffffff',
                 backgroundColor: '#EF4040',
                 position: 'topRight',
-                maxWidth: '432px',
+                maxWidth: '420px',
                 close: false,
             });
                 return galleryImages.innerHTML = "";
@@ -77,11 +74,7 @@ const markup = images.map(({ webformatURL, largeImageURL, tags, likes, views, co
 
 galleryImages.insertAdjacentHTML("beforeend", markup);
     
-const lightbox = new SimpleLightbox(document.querySelectorAll('.gallery a', {
-    captionsData: "alt",
-    captionDelay: 250,
-    captionPosition: "bottom",
-}));
+const lightbox = new SimpleLightbox(document.querySelectorAll('.gallery a'));
 
     lightbox.refresh();
 }
